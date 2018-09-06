@@ -1,6 +1,6 @@
 const express = require('express');
 const hbs = require('hbs');
-
+const port = process.env.PORT||3000;
 hbs.registerPartials(__dirname+'/views/partials');
 hbs.registerHelper('currentYear',()=>{
     return new Date().getFullYear();
@@ -42,6 +42,6 @@ app.get('/bad',(request,response)=>{
     response.send({ErrorMessage:'Page Not Found!!'})
 });
 
-app.listen(3000,()=>{
-    console.log('Server Up')
+app.listen(port,()=>{
+    console.log('Server is up on port ',port)
 }); //portNumber
